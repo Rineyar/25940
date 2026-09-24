@@ -40,6 +40,8 @@ int main(void)
             return 1;
         }
 
+        printf("len lines - %d\nlen str - %d\n", len, i);
+
         memcpy(lines[len++], line, i * sizeof(char));
 
         i = 0;
