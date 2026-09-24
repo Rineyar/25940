@@ -32,9 +32,9 @@ int main(void)
         line[i++] = '\n';
         line[i++] = '\0';
 
-        lines[len] = malloc(sizeof(char) * (i + 2));
+        char *free_line = malloc(sizeof(char) * (i + 2));
 
-        if(lines[len] == NULL)
+        if(free_line == NULL)
         {
             perror("malloc");
             return 1;
@@ -42,7 +42,9 @@ int main(void)
 
         printf("len lines - %d\nlen str - %d\n", len, i);
 
-        memcpy(lines[len++], line, i * sizeof(char));
+        memcpy(free_line, line, i * sizeof(char));
+
+        lines[len++] = free_line;
 
         i = 0;
 
