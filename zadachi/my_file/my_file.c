@@ -4,13 +4,12 @@
 //gcc -Wall -Wextra -Wpedantic -g my_file.c -o res
 int main(void)
 {
-    printf("UID - %d\teUID - %d\n", getuid(), geteuid()); //Вывод id
+    printf("1й запуск UID - %d\teUID - %d\n", getuid(), geteuid()); //Вывод id
 
     FILE *file = fopen("my_file.txt", "r");
 
     if(file == NULL)
     {
-        printf("Файл не удалось открыть\n");
         perror("Файл не удалось открыть\n");
     } else {
         printf("Файл открыт: \n");
@@ -31,11 +30,10 @@ int main(void)
 
     file = fopen("my_file.txt", "r");
 
-    printf("UID - %d\teUID - %d\n", getuid(), geteuid());
+    printf("2й запуск UID - %d\teUID - %d\n", getuid(), geteuid());
 
     if(file == NULL)
     {
-        printf("Файл не удалось открыть\n");
         perror("Файл не удалось открыть\n");
     } else {
         printf("Файл открыт: \n");
@@ -54,4 +52,3 @@ int main(void)
 
     return 0;
 }
-    
