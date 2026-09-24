@@ -10,7 +10,7 @@ int main(void)
     int i = 0;
 
     char **lines = malloc(sizeof(char*) * 1024);
-    int cap = 4;
+    int cap = 1024;
     int len = 0;
 
     while(1)
