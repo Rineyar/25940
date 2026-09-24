@@ -58,6 +58,13 @@ int main(void)
         }
     }
 
+    printf("%p\n", lines);
+
+    for(int ii = 0; ii < len; ii++)
+    {
+        printf("%d - %p\n", ii, lines[ii]);
+    }
+
     for(int ii = 0; ii < len; ii++)
     {
         printf("%s", lines[ii]);
