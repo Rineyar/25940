@@ -9,7 +9,7 @@ int main(void)
     char line[1024];
     int i = 0;
 
-    char **lines = malloc(sizeof(char*) * 4);
+    char **lines = malloc(sizeof(char*) * 1024);
     int cap = 4;
     int len = 0;
 
