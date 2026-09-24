@@ -34,6 +34,12 @@ int main(void)
 
         lines[len] = malloc(sizeof(char) * (i + 2));
 
+        if(lines[len] == NULL)
+        {
+            perror("malloc");
+            return 1;
+        }
+
         memcpy(lines[len++], line, i * sizeof(char));
 
         i = 0;
@@ -43,6 +49,12 @@ int main(void)
             cap *= 2;
 
             lines = realloc(lines, cap);
+
+            if(lines == NULL)
+            {
+                perror("realloc");
+                return 1;
+            }
         }
     }
 
