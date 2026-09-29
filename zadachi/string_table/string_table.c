@@ -132,18 +132,23 @@ int main(int argc, char *argv[])
     while(1)
     {
         long line = 0;
+        char tmp[64];
 
-        scanf("%ld", &line);
+        scanf("%s", &tmp);
 
-        if(line <= 0)
+        line = atol(tmp);
+
+        if(tmp[0] == '0')
         {
             break;
-        }
-
-        if(line - 1 > v.len)
+        } else if(line - 1 > v.len)
         {
             printf("Too long\n");
             continue;
+        } else if(line <= 0)
+        {
+            printf("Wrong long\n");
+            continue;            
         }
 
         TableIndex cur = v.arr[line - 1];
