@@ -8,25 +8,25 @@ int main(void)
 
     pid_t pid = fork();
 
-    if(pid == 0)
+    if(pid == -1)
+    {
+        perror("fork");
+    } else if(pid == 0)
     {
         printf("И она здесь есть (наверное):\n");
 
-        int e = execl("./", "cat longfile.txt", NULL);
+        int e = execlp("cat", "cat", "longfile.txt", NULL); //Исполняет бинарник cat в PATH в виде cat на longfile.txt
 
-        if(e == 0)
+        if(e == -1)
         {
-            perror("execl");
+            perror("execlp");
             _exit(1);
-        } else if(pid > 0)
-        {
-            waitpid(pid, NULL, 0);
+        } 
+    } else {
+        waitpid(pid, NULL, 0);
 
-            printf("РЕКлАМА ХЗ\n");
-        } else {
-            perror("fork");
-        }
+        printf("РЕКлАМА ХЗ\n");
     }
-    
+
     return 0;
 }
