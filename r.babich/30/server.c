@@ -30,6 +30,8 @@ int main(void)
     addr.sun_family = AF_UNIX; //Локальный сокет
     strncpy(addr.sun_path, "/tmp/server.sock", sizeof(addr.sun_path) - 1); //Общий файл
 
+    unlink("/tmp/server.sock");
+    
     bind(fd, (struct sockaddr *)&addr, sizeof(addr)); //Привязали
 
     listen(fd, 1); //Мы только один слиент ждём
