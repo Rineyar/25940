@@ -7,8 +7,6 @@
 #include <string.h>
 #include <stdio.h>
 #include <poll.h>
-#include <time.h>
-#include <stdlib.h>
 
 const size_t BUFSIZE = 64;
 
@@ -32,10 +30,6 @@ int main(void)
     connect(fd, (struct sockaddr *)&addr, sizeof(addr)); //Не привязали, а подключились
 
     char buf[BUFSIZE];
-
-    strcpy(buf, "Sender2");
-
-    struct timespec ts = { .tv_sec = 0, .tv_nsec = 500000000L };
 
     while(1)
     {
