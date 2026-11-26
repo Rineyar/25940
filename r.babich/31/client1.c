@@ -21,7 +21,7 @@ void clear(char *buf)
 
 int main(void)
 {
-    int fd = socket(AF_UNIX, SOCK_SEQPACKET, 0); //Открыли локальный сокет, получили дескриптор
+    int fd = socket(AF_UNIX, SOCK_STREAM, 0); //Открыли локальный сокет, получили дескриптор
 
     struct sockaddr_un addr = {0}; //Структура с адресом
 
@@ -38,17 +38,6 @@ int main(void)
 
     while(1)
     {
-        // clear(buf);
-
-        // scanf("%s", buf);
-
-        // if(strncmp(buf, "exit", 4) == 0)
-        // {
-        //     break;
-        // }
-
-        // send(fd, buf, strlen(buf), 0);
-
         nanosleep(&ts, NULL);
 
         send(fd, buf, strlen(buf), 0);

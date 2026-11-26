@@ -68,7 +68,7 @@ void *worker(void *arg)
 
 int main(void)
 {
-    int fd = socket(AF_UNIX, SOCK_SEQPACKET, 0); //Открыли локальный сокет, получили дескриптор
+    int fd = socket(AF_UNIX, SOCK_STREAM, 0); //Открыли локальный сокет, получили дескриптор
 
     struct sockaddr_un addr = {0}; //Структура с адресом
 
