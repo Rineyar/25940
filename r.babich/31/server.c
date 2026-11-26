@@ -150,7 +150,7 @@ int main(void)
         }
     }
 
-    #elifdef POLL_M
+    #elif defined(POLL_M)
 
     struct pollfd fds[CLIENTS + 1];
     
@@ -216,7 +216,7 @@ int main(void)
         }
     }
 
-    #elifdef THREAD_M
+    #elif defined(THREAD_M)
 
     pthread_t threads[THREADS];
 
