@@ -33,7 +33,7 @@ int main(void)
 
     char buf[BUFSIZE];
 
-    strcpy(buf, "Sender1");
+    strcpy(buf, "Sender2");
 
     struct timespec ts = { .tv_sec = 0, .tv_nsec = 500000000L };
 
