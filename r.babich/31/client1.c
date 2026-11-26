@@ -7,6 +7,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <poll.h>
+#include <time.h>
 
 const size_t BUFSIZE = 64;
 
@@ -31,16 +32,24 @@ int main(void)
 
     char buf[BUFSIZE];
 
+    strcpy(buf, "Sender1");
+
+    struct timespec ts = { .tv_sec = 0, .tv_nsec = 500000000L };
+
     while(1)
     {
-        clear(buf);
+        // clear(buf);
 
-        scanf("%s", buf);
+        // scanf("%s", buf);
 
-        if(strncmp(buf, "exit", 4) == 0)
-        {
-            break;
-        }
+        // if(strncmp(buf, "exit", 4) == 0)
+        // {
+        //     break;
+        // }
+
+        // send(fd, buf, strlen(buf), 0);
+
+        nanosleep(&ts, NULL);
 
         send(fd, buf, strlen(buf), 0);
     }
